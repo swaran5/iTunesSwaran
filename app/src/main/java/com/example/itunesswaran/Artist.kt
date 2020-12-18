@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "word_table")
 
-data class Word(
+data class Artist(
     @PrimaryKey
     @ColumnInfo( name = "artistName") val artistName : String,
     @ColumnInfo( name = "imageUrl") val imageUrl : String,

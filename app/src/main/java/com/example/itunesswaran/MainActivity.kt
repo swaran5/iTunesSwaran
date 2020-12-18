@@ -1,24 +1,18 @@
 package com.example.itunesswaran
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.SearchView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     val context = this
     var query = ""
 
     val viewModel by lazy {
-        val repository = WordsApplication().repository
+        val repository = ArtistApplication().repository
         return@lazy WordViewModel(repository)
     }
 
@@ -26,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val db = WordRoomDatabase.getDatabase(this)
+        val db = ArtistRoomDatabase.getDatabase(this)
         val search_bar = findViewById<SearchView>(R.id.search_bar)
         val song_recycler = findViewById<RecyclerView>(R.id.song_recycler)
 

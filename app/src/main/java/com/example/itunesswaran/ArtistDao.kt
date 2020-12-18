@@ -4,19 +4,18 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface WordDao {
+interface ArtistDao {
 
 //    @Query("SELECT * FROM word_table ORDER BY artistName ASC")
 //    fun getAlphabetizedWords(): Flow<List<Word>>
 
     @Query("SELECT * FROM word_table WHERE artistName LIKE '%' || :query || '%'")
-     fun getFilteredArtist(query : String): List<Word>
+     fun getFilteredArtist(query : String): List<Artist>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(word: Word)
+    suspend fun insert(artist: Artist)
 
     @Query("DELETE FROM word_table")
     suspend fun deleteAll()

@@ -1,16 +1,13 @@
 package com.example.itunesswaran
 
-import android.util.Log
 import androidx.lifecycle.*
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class WordViewModel(private val repository: WordRepository) : ViewModel() {
+class WordViewModel(private val repository: ArtistRepository) : ViewModel() {
 
     // Using LiveData and caching what allWords returns has several benefits:
     // - We can put an observer on the data (instead of polling for changes) and only update the
@@ -19,13 +16,13 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
 //    val allWord: LiveData<List<Word>> = repository.allWords.asLiveData()
 
 
-    var filteredArtists: MutableLiveData<List<Word>> = MutableLiveData<List<Word>>()
+    var filteredArtists: MutableLiveData<List<Artist>> = MutableLiveData<List<Artist>>()
 
     /**
      * Launching a new coroutine to insert the data in a non-blocking way
      */
-    fun insert(word: Word) = viewModelScope.launch {
-        repository.insert(word)
+    fun insert(artist: Artist) = viewModelScope.launch {
+        repository.insert(artist)
     }
 
 
@@ -38,7 +35,7 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
                 val result = response.body()?.results
 
                 result?.forEach {
-                    val word = Word(it.artistName, it.artworkUrl100, it.trackName ?: "")
+                    val word = Artist(it.artistName, it.artworkUrl100, it.trackName ?: "")
                     insert(word)
                 }
 
@@ -55,7 +52,7 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
     }
 }
 
-class WordViewModelFactory(private val repository: WordRepository) : ViewModelProvider.Factory {
+class WordViewModelFactory(private val repository: ArtistRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(WordViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")

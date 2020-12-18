@@ -8,9 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import kotlin.Result
 
-class MyAdapter(val context: Context, val result: List<Word>) :
+class MyAdapter(val context: Context, val result: List<Artist>) :
     RecyclerView.Adapter<MyAdapter.MyHolder>() {
 
 
@@ -30,7 +29,7 @@ class MyAdapter(val context: Context, val result: List<Word>) :
     }
     inner class MyHolder(val v: View) : RecyclerView.ViewHolder(v) {
 
-        fun setData(obj: Word, position : Int) {
+        fun setData(obj: Artist, position : Int) {
 
             v.findViewById<TextView>(R.id.artist).text = obj.artistName
             var url = obj.imageUrl
