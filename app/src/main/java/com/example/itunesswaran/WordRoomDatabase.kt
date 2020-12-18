@@ -56,6 +56,7 @@ public abstract class WordRoomDatabase : RoomDatabase() {
                     WordRoomDatabase::class.java,
                     "word_database"
                 )
+//                    .allowMainThreadQueries()
 //                    .addCallback(WordDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance

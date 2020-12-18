@@ -32,11 +32,11 @@ class MainActivity : AppCompatActivity() {
 
         song_recycler.layoutManager = GridLayoutManager(context,2)
 
-        viewModel.allWord.observe(this@MainActivity, Observer { words ->
-            val filterArtists = words.filter { it.artistName.contains(query) }
-            val adapter = MyAdapter(context, filterArtists)
+        viewModel.filteredArtists.observe(this@MainActivity, Observer { words ->
+            val adapter = MyAdapter(context, words)
             song_recycler.adapter = adapter
         })
+
         search_bar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 this@MainActivity.query = query.toString()
