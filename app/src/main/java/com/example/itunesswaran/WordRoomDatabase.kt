@@ -47,7 +47,7 @@ public abstract class WordRoomDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: WordRoomDatabase? = null
 
-        fun getDatabase(context: Context, scope: CoroutineScope): WordRoomDatabase {
+        fun getDatabase(context: Context): WordRoomDatabase {
             // if the INSTANCE is not null, then return it,
             // if it is, then create the database
             return INSTANCE ?: synchronized(this) {
@@ -55,7 +55,7 @@ public abstract class WordRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     WordRoomDatabase::class.java,
                     "word_database"
-                   )
+                )
 //                    .addCallback(WordDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance

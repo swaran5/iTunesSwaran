@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlin.Result
 
-class MyAdapter(val context: Context, val result: List<com.example.itunesswaran.Result>) :
+class MyAdapter(val context: Context, val result: List<Word>) :
     RecyclerView.Adapter<MyAdapter.MyHolder>() {
 
 
@@ -30,10 +30,10 @@ class MyAdapter(val context: Context, val result: List<com.example.itunesswaran.
     }
     inner class MyHolder(val v: View) : RecyclerView.ViewHolder(v) {
 
-        fun setData(obj: com.example.itunesswaran.Result, position : Int) {
+        fun setData(obj: Word, position : Int) {
 
             v.findViewById<TextView>(R.id.artist).text = obj.artistName
-            var url = obj.artworkUrl100
+            var url = obj.imageUrl
             Picasso.get().load(url).into(v.findViewById<ImageView>(R.id.imageView))
 
         }

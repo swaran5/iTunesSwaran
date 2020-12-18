@@ -8,5 +8,8 @@ import androidx.room.PrimaryKey
 
 data class Word(
     @PrimaryKey
-    @ColumnInfo( name = "word") val word : String
+    @ColumnInfo( name = "artistName") val artistName : String,
+    @ColumnInfo( name = "imageUrl") val imageUrl : String,
+    @ColumnInfo( name = "songName") val songName : String
+
 )

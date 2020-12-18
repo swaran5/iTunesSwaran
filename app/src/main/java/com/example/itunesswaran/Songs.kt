@@ -6,7 +6,7 @@ data class Songs(
 
 data class Result(
     val artistName : String,
-    val trackName : String,
+    val trackName : String?,
     val artworkUrl100 : String,
 
 )
