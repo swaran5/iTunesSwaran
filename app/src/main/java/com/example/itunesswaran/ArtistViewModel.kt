@@ -1,11 +1,6 @@
 package com.example.itunesswaran
 
 import androidx.lifecycle.*
-import com.example.itunesswaran.Model.Repository.*
-import com.example.itunesswaran.Model.Repository.Database.Artist
-import com.example.itunesswaran.Model.Repository.Database.ArtistRepository
-import com.example.itunesswaran.Model.Repository.Retrofit.Endpoints
-import com.example.itunesswaran.Model.Repository.Retrofit.ServiceBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -57,12 +52,12 @@ class WordViewModel(private val repository: ArtistRepository) : ViewModel() {
     }
 }
 
-//class WordViewModelFactory(private val repository: ArtistRepository) : ViewModelProvider.Factory {
-//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-//        if (modelClass.isAssignableFrom(WordViewModel::class.java)) {
-//            @Suppress("UNCHECKED_CAST")
-//            return WordViewModel(repository) as T
-//        }
-//        throw IllegalArgumentException("Unknown ViewModel class")
-//    }
-//}
+class WordViewModelFactory(private val repository: ArtistRepository) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(WordViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return WordViewModel(repository) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
+}

@@ -1,4 +1,4 @@
-package com.example.itunesswaran.Model.Repository.Database
+package com.example.itunesswaran
 
 import androidx.room.Dao
 import androidx.room.Insert

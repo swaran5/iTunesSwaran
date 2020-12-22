@@ -1,4 +1,4 @@
-package com.example.itunesswaran.Model.Repository
+package com.example.itunesswaran
 
 data class Songs(
     val results: List<Result>

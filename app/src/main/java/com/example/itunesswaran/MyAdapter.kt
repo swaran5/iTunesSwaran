@@ -1,4 +1,4 @@
-package com.example.itunesswaran.View
+package com.example.itunesswaran
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.itunesswaran.Model.Repository.Database.Artist
-import com.example.itunesswaran.R
 import com.squareup.picasso.Picasso
 
 class MyAdapter(val context: Context, val result: List<Artist>) :
