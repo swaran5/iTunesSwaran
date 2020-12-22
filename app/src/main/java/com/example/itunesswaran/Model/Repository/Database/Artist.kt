@@ -1,4 +1,4 @@
-package com.example.itunesswaran
+package com.example.itunesswaran.Model.Repository.Database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

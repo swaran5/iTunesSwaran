@@ -1,4 +1,4 @@
-package com.example.itunesswaran
+package com.example.itunesswaran.View
 
 import android.os.Bundle
 import android.widget.SearchView
@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.itunesswaran.*
+import com.example.itunesswaran.Model.Repository.Database.ArtistApplication
+import com.example.itunesswaran.Model.Repository.Database.ArtistRoomDatabase
 
 class MainActivity : AppCompatActivity() {
     val context = this
@@ -20,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val db = ArtistRoomDatabase.getDatabase(this)
+//        val db = ArtistRoomDatabase.getDatabase(this)
         val search_bar = findViewById<SearchView>(R.id.search_bar)
         val song_recycler = findViewById<RecyclerView>(R.id.song_recycler)
 

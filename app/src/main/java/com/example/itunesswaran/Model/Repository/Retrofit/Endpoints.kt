@@ -1,8 +1,8 @@
-package com.example.itunesswaran
+package com.example.itunesswaran.Model.Repository.Retrofit
 
+import com.example.itunesswaran.Model.Repository.Songs
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 

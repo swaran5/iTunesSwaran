@@ -1,4 +1,4 @@
-package com.example.itunesswaran
+package com.example.itunesswaran.Model.Repository.Retrofit
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
