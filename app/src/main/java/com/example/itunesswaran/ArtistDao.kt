@@ -6,7 +6,8 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface ArtistDao {
+interface
+ArtistDao {
 
 //    @Query("SELECT * FROM word_table ORDER BY artistName ASC")
 //    fun getAlphabetizedWords(): Flow<List<Word>>

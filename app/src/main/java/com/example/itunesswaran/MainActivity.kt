@@ -11,22 +11,23 @@ class MainActivity : AppCompatActivity() {
     val context = this
     var query = ""
 
-    val viewModel by lazy {
-        val repository = ArtistApplication().repository
-        return@lazy WordViewModel(repository)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val db = ArtistRoomDatabase.getDatabase(this)
+        val repository by lazy { ArtistRepository(db.wordDao()) }
+
+        val viewModel by lazy {
+            return@lazy WordViewModel(repository)
+        }
+
         val search_bar = findViewById<SearchView>(R.id.search_bar)
         val song_recycler = findViewById<RecyclerView>(R.id.song_recycler)
 
         song_recycler.layoutManager = GridLayoutManager(context,2)
 
-        viewModel.filteredArtists.observe(this@MainActivity, Observer { words ->
+        viewModel.filteredArtists.observe(this, Observer { words ->
             val adapter = MyAdapter(context, words)
             song_recycler.adapter = adapter
         })
